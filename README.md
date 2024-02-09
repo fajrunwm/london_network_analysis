@@ -1,4 +1,16 @@
-## Import Libraries
+# Bloomsbury Network Analysis
+
+## Introduction
+
+This study aims to conduct a street network analysis of cafes near UCL Bloomsbury within a radius of 2000 metres. By calculating the closeness and betweenness centrality, a visual interpretation is then performed to review the relationship between the distribution of cafes and networks, whether they are aligned or not. Additionally, the shortest path is demonstrated from Oxford Circus to Euston Station, reviewing how many cafes exist along the generated route.
+
+## Dataset and Neighbourhood
+
+The dataset is derived from OSM using OSMnx towards the walk route. The study area is a learning environment, assuming people walk from campus to nearby places, such as cafes or stations. UCL Bloomsbury is chosen as the starting point, being located near several stations.
+
+## Analysis and Visualisation
+
+### Import Libraries
 
 
 ```python
@@ -14,25 +26,23 @@ import matplotlib.colors as colors
 import contextily as ctx
 ```
 
-## Defining study area
+### Defining study area
 
 
 ```python
 # defining networks of UCL with radius of 2000 metres
-G=ox.graph_from_address('UCL, London', dist=500, network_type='walk')
+G=ox.graph_from_address('UCL, London', dist=2000, network_type='walk')
 #ox.plot_graph(G)
 ```
 
-## Get OpenStreetMap Geometries
-
-### Cafe
+### Get Cafe Geometries
 
 
 ```python
 # Define the tags for filtering amenities (in this case, cafes)
 tags = {'amenity': 'cafe'}
 
-cafe_geom = ox.features.features_from_address('UCL, London', tags=tags, dist=500)
+cafe_geom = ox.features.features_from_address('UCL, London', tags=tags, dist=2000)
 cafe_geom = cafe_geom.to_crs(epsg=3857)
 ```
 
@@ -50,20 +60,20 @@ plt.legend()
 plt.show()
 ```
 
-    C:\Users\fajrunwm\AppData\Local\Temp\ipykernel_15700\563875412.py:9: UserWarning: Legend does not support handles for PatchCollection instances.
+    C:\Users\fajrunwm\AppData\Local\Temp\ipykernel_31008\563875412.py:9: UserWarning: Legend does not support handles for PatchCollection instances.
     See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
       plt.legend()
     
 
 
     
-![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_7_1.png)
+![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_12_1.png)
     
 
 
-## Network Analysis
+### Network Analysis
 
-### Closeness Centrality
+#### Closeness Centrality
 
 
 ```python
@@ -106,18 +116,18 @@ plt.legend()
 plt.show()
 ```
 
-    C:\Users\fajrunwm\AppData\Local\Temp\ipykernel_15700\1196762778.py:30: UserWarning: Legend does not support handles for PatchCollection instances.
+    C:\Users\fajrunwm\AppData\Local\Temp\ipykernel_31008\1196762778.py:30: UserWarning: Legend does not support handles for PatchCollection instances.
     See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
       plt.legend()
     
 
 
     
-![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_11_1.png)
+![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_16_1.png)
     
 
 
-### Betweenness Centrality
+#### Betweenness Centrality
 
 
 ```python
@@ -154,18 +164,18 @@ plt.legend()
 plt.show()
 ```
 
-    C:\Users\fajrunwm\AppData\Local\Temp\ipykernel_15700\1470670966.py:30: UserWarning: Legend does not support handles for PatchCollection instances.
+    C:\Users\fajrunwm\AppData\Local\Temp\ipykernel_31008\1470670966.py:30: UserWarning: Legend does not support handles for PatchCollection instances.
     See: https://matplotlib.org/stable/tutorials/intermediate/legend_guide.html#implementing-a-custom-legend-handler
       plt.legend()
     
 
 
     
-![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_13_1.png)
+![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_18_1.png)
     
 
 
-### Shortest Path
+#### Shortest Path
 
 
 ```python
@@ -185,6 +195,16 @@ fig,ax = ox.plot_graph_route(G, route)
 
 
     
-![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_15_0.png)
+![png](bloomsbury_network_analysis_files/bloomsbury_network_analysis_20_0.png)
     
 
+
+## Discussion
+
+The analysis of closeness and betweenness centrality provides valuable insights into the spatial structure and connectivity within the study area. Along Cleveland Street, the highest closeness centrality score indicates excellent accessibility and connectivity to the entire edge of the study area. It suggests that the node is well-connected to various destinations and easily reachable from different parts of the neighbourhood. Despite having the highest closeness centrality, this road is not the densest location of cafes.
+Meanwhile, the highest betweenness centrality lies on several separated edges, such as Wimpole Street and Berners Street, indicating that these streets y plays a critical role in connecting different parts of the network. However, it may experience heavy traffic and serve as a major thoroughfare, potentially requiring improvement for pedestrian enjoyment. It may hava a different pattern in terms of café concentration, indicating that this road might not be popular among coffee lovers.
+
+The shortest path from Oxford Circus to Euston station offers the most effortless pedestrian route in terms of distance, passing several cafes along route. However, it is technically difficult to visualise the shortest path and cafe spots in the same canvas.
+
+..ay.
+d.
