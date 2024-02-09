@@ -202,9 +202,8 @@ fig,ax = ox.plot_graph_route(G, route)
 ## Discussion
 
 The analysis of closeness and betweenness centrality provides valuable insights into the spatial structure and connectivity within the study area. Along Cleveland Street, the highest closeness centrality score indicates excellent accessibility and connectivity to the entire edge of the study area. It suggests that the node is well-connected to various destinations and easily reachable from different parts of the neighbourhood. Despite having the highest closeness centrality, this road is not the densest location of cafes.
-Meanwhile, the highest betweenness centrality lies on several separated edges, such as Wimpole Street and Berners Street, indicating that these streets y plays a critical role in connecting different parts of the network. However, it may experience heavy traffic and serve as a major thoroughfare, potentially requiring improvement for pedestrian enjoyment. It may hava a different pattern in terms of café concentration, indicating that this road might not be popular among coffee lovers.
 
-The shortest path from Oxford Circus to Euston station offers the most effortless pedestrian route in terms of distance, passing several cafes along route. However, it is technically difficult to visualise the shortest path and cafe spots in the same canvas.
+Meanwhile, the highest betweenness centrality lies on several separated edges, such as Wimpole Street and Berners Street, indicating that these streets play a critical role in connecting different parts of the network. However, it may experience heavy traffic and serve as a major thoroughfare, potentially requiring improvement for pedestrian enjoyment. It may have a different pattern in terms of café concentration, indicating that such streets might not be popular among coffee lovers.
+
+The shortest path from Oxford Circus to Euston station offers the most effortless pedestrian route in terms of distance, passing several cafes along the route. However, it is technically difficult to visualise the shortest path and cafe spots on the same canvas.
 
-..ay.
-d.
